@@ -7,7 +7,7 @@ import os
 
 # csv file saved next to script
 script_dir = os.path.dirname(os.path.abspath(__file__))
-file_name = os.path.join(script_dir, "sensor_data_breath_stomach4.csv")
+file_name = os.path.join(script_dir, "sensor_data_idle9.csv")
 
 # Change 'COM3' to your Arduino's port
 ser = serial.Serial('COM6', 115200)
