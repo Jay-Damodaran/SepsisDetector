@@ -2,11 +2,12 @@
 #define SEPSISWARN 0
 
 // pin for buzzer
-const uint8_t buzzPin = 3; 
+const uint8_t buzzPin = 5; // corresponds to GPIO number on Xiao ESP32-C3, not the digital pin number
 uint8_t mode;
 
 // setup for buzzer
 void setup() {
+  Serial.begin(9600);
   pinMode(buzzPin, OUTPUT);
   mode = 1;
 }
@@ -36,14 +37,15 @@ void playLowBattery() {
 }
 
 void loop() {
-  switch(mode){
-    case SEPSISWARN:{
-      playSepsisWarning();
-      break;
-    }
-    case LOWBATT:{
-      playLowBattery();
-      break;
-    }
-  }
+  // switch(mode){
+  //   case SEPSISWARN:{
+  //     playSepsisWarning();
+  //     break;
+  //   }
+  //   case LOWBATT:{
+  //     playLowBattery();
+  //     break;
+  //   }
+  // }
+  playSepsisWarning();
 }
