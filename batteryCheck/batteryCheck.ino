@@ -1,3 +1,6 @@
+#include "WiFi.h"
+#include "esp_bt.h"
+
 // analog pin connected to battery + terminal
 #define BATTERY A0
 // lipo range is 3.1V to 4.2V, but voltage is halved due to voltage divider to ensure safe input to analog pin
@@ -40,6 +43,11 @@ int lowBatteryDetect(){
 void setup() {
   Serial.begin(9600);
   while (!Serial);
+  WiFi.mode(WIFI_OFF);
+
+  // // Disable Bluetooth
+  btStop();
+  esp_bt_controller_disable();
 }
 
 int readBattery(){
